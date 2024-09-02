@@ -1,0 +1,86 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Unknownkellymc1/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Trade Scam GUI | By Laden", -- Set the window name here
+    HidePremium = true,
+    IntroEnabled = false
+})
+
+OrionLib:MakeNotification({
+	Name = "GUI Has Fully Loaded!",
+	Content = "Start Scamming :)",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+OrionLib:MakeNotification({
+	Name = "New Features!",
+	Content = "+ Freeze Trade + Lag Trade",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+-- Create Tabs
+local Tab1 = Window:MakeTab({
+    Name = "Main Tab", -- Set the name of the first tab here
+    Icon = "rbxassetid://123456789", -- Replace with your icon ID
+    PremiumOnly = false
+})
+
+local Tab2 = Window:MakeTab({
+    Name = "Features", -- Set the name of the second tab here
+    Icon = "rbxassetid://123456789", -- Replace with your icon ID
+    PremiumOnly = false
+})
+
+-- Initialize toggle states
+local tradeScamToggleState = false
+local forceAcceptToggleState = false
+
+-- Add Toggle and Button to Tab 1
+Tab1:AddToggle({
+    Name = "Freeze Trade", -- Name of the toggle
+    Default = false, -- Default state of the toggle
+    Callback = function(state)
+        tradeScamToggleState = state
+end
+})
+
+Tab1:AddToggle({
+    Name = "Force Accept", -- Name of the toggle
+    Default = false, -- Default state of the toggle
+    Callback = function(state)
+        forceAcceptToggleState = state
+    end
+})
+
+-- Add Buttons to Tab 2
+Tab2:AddButton({
+    Name = "Duper", -- Name of the first button in Tab 2
+    Callback = function()
+        print("Freeze Trade Activated!")
+    end
+})
+
+Tab2:AddTextbox({
+	Name = "Godly Name",
+	Default = "Godly Name Here",
+	TextDisappear = true,
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
+-- Add Buttons to Tab 1
+
+Tab1:AddTextbox({
+	Name = "Victim’s Username",
+	Default = "Username Here",
+	TextDisappear = true,
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
+-- Show the window
+Window:Show()
